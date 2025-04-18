@@ -1,0 +1,46 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Canelita - Gmail Reader API (local)",
+    "description": "Conecta Canelita a tu servidor local para leer correos de Gmail",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8000",
+      "description": "Servidor local de Pablo en su m\u00e1quina"
+    }
+  ],
+  "paths": {
+    "/leer_gmail": {
+      "get": {
+        "operationId": "leerGmail",
+        "summary": "Leer correos no le\u00eddos",
+        "description": "Devuelve una lista de correos no le\u00eddos desde tu cuenta de Gmail personal.",
+        "responses": {
+          "200": {
+            "description": "Lista de correos no le\u00eddos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sender": {
+                        "type": "string"
+                      },
+                      "subject": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
